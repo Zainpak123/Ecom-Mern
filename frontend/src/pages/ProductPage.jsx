@@ -11,9 +11,11 @@ export default function ProductPage() {
   const [product, setProduct] = useState(null);
   const [error, setError] = useState("");
 
+  const api = import.meta.env.VITE_API_URL;
+
   // 🧩 Fetch Product Data
   useEffect(() => {
-    fetch(`http://localhost:5000/products/${id}`)
+    fetch(`${api}/products/${id}`)
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch product");
         return res.json();
